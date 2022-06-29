@@ -1,0 +1,22 @@
+
+<!-- FOOTER -->
+<footer class="container mt-5">
+	<div class="row">
+		<div class="col-md-8">
+			<p>&copy;2022 Created by Kaushik Bhadra and design by bootstrap.</p>
+		</div>
+		<div class="col-md-4">
+			<p class="float-right">
+				<a href="#">Back to top</a>
+			</p>
+		</div>
+	</div>
+
+
+</footer>
+</main>
+
+<script src="<c:url value="/js/jquery.slim.min.js"/>"></script>
+<script src="<c:url value="/js/bootstrap.min.js"/>"></script>
+</body>
+</html>
