@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<c:set var="path" value="${pageContext.request.contextPath}"></c:set>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,7 @@
 <meta name="author"
 	content="Kaushik Bhadra, Mark Otto, Jacob Thornton, and Bootstrap contributors" />
 <meta name="generator" content="Hugo 0.88.1" />
-<title>Administrator-Page</title>
+<title>Login Page</title>
 <link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>" />
 
 <!-- Custom styles for this template -->
@@ -34,47 +35,62 @@
 					<li class="nav-item"><a class="nav-link"
 						href="<c:url value="/"/>">Home <span class="sr-only">(current)</span>
 					</a></li>
-					<li class="nav-item active"><a class="nav-link "
+					<li class="nav-item active"><a class="nav-link"
 						href="<c:url value="/product-lists"/>">Products</a></li>
 
 				</ul>
 				<ul class="navbar-nav mr-sm-2">
-					<li class="nav-item mt-md-0 active"><a class="nav-link"
+					<li class="nav-item mt-md-0"><a class="nav-link"
 						href="<c:url value="/admin"/>">Admin</a></li>
-				</ul>
-
-				<ul class="navbar-nav mr-sm-2">
-					<li class="nav-item mt-md-0 "><form:form
-							action="/logout" method="POST">
-							<button type="submit" class="btn btn-danger">Logout</button>
-						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-						</form:form></li>
 				</ul>
 			</div>
 		</nav>
 	</header>
-	<!-- Main Block -->
+
 	<main role="main">
 
-		<div class="container-fluid">
-			<div class="container">
-				<div class="page-header mt-5">
-					<h1>Administrator</h1>
 
-					<p class="lead">For Administrator purpose</p>
+		<div class="container mt-5">
+
+			<div id="login-row"
+				class="row justify-content-center align-items-center">
+				<div id="login-column" class="col-md-6">
+					<div id="login-box" class="col-md-12">
+						<c:if test="${not empty msg}">
+							<div class="msg alert alert-success">${msg}</div>
+						</c:if>
+						<form id="login-form" class="form" action="${path}/login"
+							method="post">
+							<h3 class="text-center text-info">Login</h3>
+							<c:if test="${not empty error}">
+								<div class="error alert alert-danger" >${error}</div>
+							</c:if>
+							<div class="form-group">
+								<label for="username" class="text-info">Username:</label><br>
+								<input type="text"  name="username"
+									id="username" class="form-control" />
+
+							</div>
+							<div class="form-group">
+								<label for="password" class="text-info">Password:</label><br>
+								<input type="password"  name="password"
+									id="password" class="form-control" />
+							</div>
+							<!-- Very Important Input -->
+							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+							<div class="form-group">
+								<input type="submit" name="submit" class="btn btn-info btn-md"
+									value="submit" />
+							</div>
+
+						</form>
+					</div>
 				</div>
-
-
-				<h3>
-					<a href="<c:url value="/admin/product-inventory"/>">Product
-						Inventory</a>
-
-				</h3>
-				<p>Here, You can view or modify and add product in inventory.</p>
-
 			</div>
+
+
 		</div>
-		<!-- /.container-fluid -->
+		<!-- Container End -->
 
 
 		<!-- FOOTER -->

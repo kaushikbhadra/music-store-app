@@ -23,7 +23,7 @@
 <body>
 	<header>
 		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-			<a class="navbar-brand" href="<c:url value="/store/musicstore"/>">MusicStore</a>
+			<a class="navbar-brand" href="<c:url value="/"/>">MusicStore</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarCollapse" aria-controls="navbarCollapse"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -32,14 +32,14 @@
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item"><a class="nav-link"
-						href="<c:url value="/store/musicstore"/>">Home <span
+						href="<c:url value="/"/>">Home <span
 							class="sr-only">(current)</span>
 					</a></li>
 					<li class="nav-item active"><a class="nav-link "
-						href="<c:url value="/store/product-lists"/>">Products</a></li>
+						href="<c:url value="/product-lists"/>">Products</a></li>
 				</ul>
 				<ul class="navbar-nav mr-sm-2">
-					<li class="nav-item mt-md-0 active"><a class="nav-link" href="<c:url value="/store/admin"/>">Admin</a></li>
+					<li class="nav-item mt-md-0 active"><a class="nav-link" href="<c:url value="/admin"/>">Admin</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -78,13 +78,13 @@
 								<td>${product.productCondition}</td>
 								<td>&#8377;${product.productPrice}</td>
 								<td><a
-									href="<spring:url value="/store/product-lists/product-show/${product.productId}"/>"><img
+									href="<spring:url value="/product-lists/product-show/${product.productId}"/>"><img
 										src="<c:url value="/img/svg/info-circle-fill.svg"/>"></a>
 									<a
-									href="<spring:url value="/store/admin/product-inventory/delete-product/${product.productId}"/>"><img
+									href="<spring:url value="/admin/product-inventory/delete-product/${product.productId}"/>"><img
 										src="<c:url value="/img/svg/x-circle-fill.svg"/>"></a>
 									<a
-									href="<spring:url value="/store/admin/product-inventory/edit-product/${product.productId}"/>"><img
+									href="<spring:url value="/admin/product-inventory/edit-product/${product.productId}"/>"><img
 										src="<c:url value="/img/svg/pen-fill.svg"/>"></a>
 								</td>
 							</tr>
@@ -92,7 +92,7 @@
 					</tbody>
 
 				</table>
-				<a href="<spring:url value="/store/admin/product-inventory/add-product"/>"  class="btn btn-outline-success ">Add Product</a>
+				<a href="<spring:url value="/admin/product-inventory/add-product"/>"  class="btn btn-outline-success ">Add Product</a>
 				
 			</div>
 		</div>

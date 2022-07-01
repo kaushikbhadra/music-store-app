@@ -22,7 +22,7 @@
 <body>
 	<header>
 		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-			<a class="navbar-brand" href="<c:url value="/store/musicstore"/>">MusicStore</a>
+			<a class="navbar-brand" href="<c:url value="/"/>">MusicStore</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarCollapse" aria-controls="navbarCollapse"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -31,16 +31,16 @@
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active"><a class="nav-link"
-						href="<c:url value="/store/musicstore"/>">Home <span
+						href="<c:url value="/"/>">Home <span
 							class="sr-only">(current)</span>
 					</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="<c:url value="/store/product-lists"/>">Products</a></li>
+						href="<c:url value="/product-lists"/>">Products</a></li>
 
 				</ul>
 				<ul class="navbar-nav mr-sm-2">
 					<li class="nav-item mt-md-0"><a class="nav-link"
-						href="<c:url value="/store/admin"/>">Admin</a></li>
+						href="<c:url value="/admin"/>">Admin</a></li>
 				</ul>
 
 			</div>
