@@ -18,49 +18,50 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.kaushik.music.musicStore.model.Product;
 import com.kaushik.music.musicStore.service.ProductServices;
 
 @Controller
-
+@RequestMapping("/admin")
 public class AdminController {
 
 	private Path path;
 	private ProductServices prodServices;
-	
+
 	@Autowired
 	public AdminController(ProductServices theProdServices) {
 		prodServices = theProdServices;
 	}
 
-	@GetMapping("/admin")
+	@GetMapping
 	public String adminPage() {
 		return "admin-page";
 	}
 
-	@GetMapping("/admin/product-inventory")
+	@GetMapping("/product-inventory")
 	public String productInventory(Model model) {
 		List<Product> products = prodServices.findAll();
 		model.addAttribute("products", products);
 		return "product-inventory-page";
 	}
 
-	@GetMapping("/admin/product-inventory/add-product")
+	@GetMapping("/product-inventory/add-product")
 	public String addProduct(Model model) {
 		Product product = new Product();
 		model.addAttribute("product", product);
 		return "add-product-page";
 	}
 
-	@PostMapping("/admin/product-inventory/add-product")
+	@PostMapping("/product-inventory/add-product")
 	public String addProduct(@Valid @ModelAttribute("product") Product product, BindingResult result) {
 
 		try {
 
 			if (result.hasErrors()) {
-				
+
 				return "add-product-page";
 			} else {
 
@@ -83,7 +84,7 @@ public class AdminController {
 		return "redirect:/admin/product-inventory";
 	}
 
-	@GetMapping("/admin/product-inventory/edit-product/{productId}")
+	@GetMapping("/product-inventory/edit-product/{productId}")
 	public String editProduct(@PathVariable int productId, Model model) {
 
 		Product product = prodServices.findById(productId);
@@ -92,7 +93,7 @@ public class AdminController {
 		return "edit-product-page";
 	}
 
-	@PostMapping("/admin/product-inventory/edit-product")
+	@PostMapping("/product-inventory/edit-product")
 	public String editProduct(@Valid @ModelAttribute("product") Product product, BindingResult result) {
 
 		try {
@@ -117,7 +118,7 @@ public class AdminController {
 		return "redirect:/admin/product-inventory";
 	}
 
-	@GetMapping("/admin/product-inventory/delete-product/{productId}")
+	@GetMapping("/product-inventory/delete-product/{productId}")
 	public String deleteProduct(@PathVariable int productId) {
 		try {
 
@@ -137,7 +138,10 @@ public class AdminController {
 		return "redirect:/admin/product-inventory";
 
 	}
-
 	
+	@GetMapping("/customer")
+	public String getCustomer(Model model) {
+		return "/product-items";
+	}
 
 }

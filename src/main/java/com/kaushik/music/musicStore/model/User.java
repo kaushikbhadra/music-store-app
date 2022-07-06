@@ -14,6 +14,7 @@ public class User {
 	private String username;
 	private String password;
 	private String role;
+	private int customerId;
 
 	public Long getUserId() {
 		return userId;
@@ -46,5 +47,15 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
+
+	public int getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
+	}
+	
+	
 
 }

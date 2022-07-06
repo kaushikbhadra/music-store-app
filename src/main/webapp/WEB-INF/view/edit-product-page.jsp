@@ -36,7 +36,7 @@
 							class="sr-only">(current)</span>
 					</a></li>
 					<li class="nav-item active"><a class="nav-link"
-						href="<c:url value="/product-lists"/>">Products</a></li>
+						href="<c:url value="/product/product-lists"/>">Products</a></li>
 					
 				</ul>
 				<ul class="navbar-nav mr-sm-2">

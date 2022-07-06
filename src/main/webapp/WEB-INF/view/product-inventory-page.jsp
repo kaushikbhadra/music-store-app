@@ -36,7 +36,7 @@
 							class="sr-only">(current)</span>
 					</a></li>
 					<li class="nav-item active"><a class="nav-link "
-						href="<c:url value="/product-lists"/>">Products</a></li>
+						href="<c:url value="/product/product-lists"/>">Products</a></li>
 				</ul>
 				<ul class="navbar-nav mr-sm-2">
 					<li class="nav-item mt-md-0 active"><a class="nav-link" href="<c:url value="/admin"/>">Admin</a></li>
@@ -78,7 +78,7 @@
 								<td>${product.productCondition}</td>
 								<td>&#8377;${product.productPrice}</td>
 								<td><a
-									href="<spring:url value="/product-lists/product-show/${product.productId}"/>"><img
+									href="<spring:url value="/product/product-lists/product-show/${product.productId}"/>"><img
 										src="<c:url value="/img/svg/info-circle-fill.svg"/>"></a>
 									<a
 									href="<spring:url value="/admin/product-inventory/delete-product/${product.productId}"/>"><img

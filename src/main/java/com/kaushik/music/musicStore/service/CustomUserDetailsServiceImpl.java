@@ -10,12 +10,12 @@ import com.kaushik.music.musicStore.dao.UserRepository;
 import com.kaushik.music.musicStore.model.User;
 
 @Service
-public class CustomUserDetailsService implements UserDetailsService{
+public class CustomUserDetailsServiceImpl implements UserDetailsService{
 
 	@Autowired
 	private UserRepository userRepository;
 	
-	public CustomUserDetailsService() {
+	public CustomUserDetailsServiceImpl() {
 	}
 
 	@Override
@@ -24,7 +24,7 @@ public class CustomUserDetailsService implements UserDetailsService{
 		if(user.equals(null)) {
 			throw new UsernameNotFoundException("Not Found Username");
 		}
-		return new CustomUserDetails(user);
+		return new CustomUserDetailsImpl(user);
 	}
 
 }

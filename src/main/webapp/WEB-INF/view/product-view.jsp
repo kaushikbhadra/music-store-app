@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +36,7 @@
 							class="sr-only">(current)</span>
 					</a></li>
 					<li class="nav-item active"><a class="nav-link"
-						href="<c:url value="/product-lists"/>">Products</a></li>
+						href="<c:url value="/product/product-lists"/>">Products</a></li>
 					
 				</ul>
 				<ul class="navbar-nav mr-sm-2">
@@ -68,6 +69,16 @@
 						<p><strong>Category</strong>: ${product.productCategory}</p>
 						<p><strong>Condition</strong>: ${product.productCondition}</p>
 						<p><strong>Price</strong>: &#8377;${product.productPrice}</p>
+						<br>
+						
+                    <p>
+                        <a href="<c:url value="/product/product-lists" />" class="btn btn-default">Back</a>
+                        <a href="#" class="btn btn-warning btn-lg"><span
+                                class="glyphicon glyphicon-shopping-cart"></span>Order
+                            Now</a>
+                        <a href="<spring:url value="/cart" />"
+                           class="btn btn-default"><span class="glyphicon glyphicon-hand-right"></span>View Cart</a>
+                    </p>
 					</div>
 				</div>
 			</div>

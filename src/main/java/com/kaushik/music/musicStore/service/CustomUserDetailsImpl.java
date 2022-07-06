@@ -11,7 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.kaushik.music.musicStore.model.User;
 
 
-public class CustomUserDetails implements UserDetails {
+public class CustomUserDetailsImpl implements UserDetails {
 
 	/**
 	 * 
@@ -20,7 +20,7 @@ public class CustomUserDetails implements UserDetails {
 	
 	private User user;
 
-	public CustomUserDetails(User user) {
+	public CustomUserDetailsImpl(User user) {
 		super();
 		this.user = user;
 	}

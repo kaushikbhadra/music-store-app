@@ -35,12 +35,14 @@
 							class="sr-only">(current)</span>
 					</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="<c:url value="/product-lists"/>">Products</a></li>
+						href="<c:url value="/product/product-lists"/>">Products</a></li>
 
 				</ul>
 				<ul class="navbar-nav mr-sm-2">
 					<li class="nav-item mt-md-0"><a class="nav-link"
 						href="<c:url value="/admin"/>">Admin</a></li>
+					<li class="nav-item mt-md-0"><a class="nav-link"
+						href="<c:url value="/register"/>">Register</a></li>
 				</ul>
 
 			</div>
