@@ -1,9 +1,12 @@
 package com.kaushik.music.musicStore.model;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+
 
 @Entity
 public class User {
@@ -14,6 +17,8 @@ public class User {
 	private String username;
 	private String password;
 	private String role;
+	
+	
 	private int customerId;
 
 	public Long getUserId() {

@@ -26,7 +26,7 @@ public class CartItem implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int cartItemId;
 	@ManyToOne
-	@JoinColumn(name = "cartId")
+	@JoinColumn(name = "cartId", referencedColumnName = "cartId")
 	@JsonIgnore
 	private Cart cart;
 

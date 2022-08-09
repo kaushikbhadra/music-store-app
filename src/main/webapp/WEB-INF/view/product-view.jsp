@@ -1,50 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="description"
-	content="Best Stores for Buying music MP3, Instrument and Accessories" />
-<meta name="author"
-	content="Kaushik Bhadra, Mark Otto, Jacob Thornton, and Bootstrap contributors" />
-<meta name="generator" content="Hugo 0.88.1" />
-<title>Product-Details</title>
-<link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>" />
-
-<!-- Custom styles for this template -->
-
-<link rel="stylesheet" href="<c:url value="/css/style.css"/>" />
-</head>
-<body>
-	<header>
-		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-			<a class="navbar-brand" href="<c:url value="/"/>">MusicStore</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarCollapse" aria-controls="navbarCollapse"
-				aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarCollapse">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item"><a class="nav-link"
-						href="<c:url value="/"/>">Home <span
-							class="sr-only">(current)</span>
-					</a></li>
-					<li class="nav-item active"><a class="nav-link"
-						href="<c:url value="/product/product-lists"/>">Products</a></li>
-					
-				</ul>
-				<ul class="navbar-nav mr-sm-2">
-					<li class="nav-item mt-md-0"><a class="nav-link" href="<c:url value="/admin"/>">Admin</a></li>
-				</ul>
-			</div>
-		</nav>
-	</header>
+<%@ include file="common/header.jspf"%>
 
 <main role="main">
 
@@ -56,57 +11,54 @@
 				<p class="lead">Here is the detail information of the product!</p>
 			</div>
 			<hr>
-			<div class="container">
+			<div class="container" ng-app="cartApp">
 				<div class="row">
 					<div class="col-md-5">
-						<img src="<c:url value="/img/${product.productId}.jpg"/>" alt="image" style="width: 100%; height: 300px" />
+						<img src="<c:url value="/img/${product.productId}.jpg"/>"
+							alt="image" style="width: 100%; height: 300px" />
 					</div>
 
 					<div class="col-md-5">
 						<h3>${product.productName}</h3>
 						<p>${product.productDescription}</p>
-						<p><strong>Manufacture</strong>: ${product.productManufacture}</p>
-						<p><strong>Category</strong>: ${product.productCategory}</p>
-						<p><strong>Condition</strong>: ${product.productCondition}</p>
-						<p><strong>Price</strong>: &#8377;${product.productPrice}</p>
+						<p>
+							<strong>Manufacture</strong>: ${product.productManufacture}
+						</p>
+						<p>
+							<strong>Category</strong>: ${product.productCategory}
+						</p>
+						<p>
+							<strong>Condition</strong>: ${product.productCondition}
+						</p>
+						<p>
+							<strong>Price</strong>: &#8377;${product.productPrice}
+						</p>
 						<br>
-						
-                    <p>
-                        <a href="<c:url value="/product/product-lists" />" class="btn btn-default">Back</a>
-                        <a href="#" class="btn btn-warning btn-lg"><span
-                                class="glyphicon glyphicon-shopping-cart"></span>Order
-                            Now</a>
-                        <a href="<spring:url value="/cart" />"
-                           class="btn btn-default"><span class="glyphicon glyphicon-hand-right"></span>View Cart</a>
-                    </p>
+						<c:set var="role" scope="page" value="${param.role}" />
+						<c:set var="url" scope="page" value="/product/product-lists" />
+						<c:if test="${role='admin'}">
+							<c:set var="url" scope="page" value="/admin/product-inventory" />
+						</c:if>
+
+
+
+
+						<p ng-controller="cartCtrl">
+							<a href="<c:url value="/product/product-lists" />"
+								class="btn btn-default">Back</a> <a href="#"
+								class="btn btn-warning btn-lg"
+								ng-click="addToCart('${product.productId}')"><img
+								src="<c:url value="/img/svg/cart4.svg"/>">Order Now</a> <a
+								href="<spring:url value="/customer/cart" />" class="btn btn-default"><img
+								src="<c:url value="/img/svg/box-arrow-in-up-right.svg"/>">View
+								Cart</a>
+						</p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
-
-
-
-	
-<!-- FOOTER -->
-<footer class="container mt-5">
-	<div class="row">
-		<div class="col-md-8">
-			<p>&copy;2022 Created by Kaushik Bhadra and design by bootstrap.</p>
-		</div>
-		<div class="col-md-4">
-			<p class="float-right">
-				<a href="#">Back to top</a>
-			</p>
-		</div>
-	</div>
-
-
-</footer>
 </main>
+<script src="<c:url value="${pageContext.request.contextPath}/js/controller.js" /> "></script>
+<%@ include file="common/footer.jspf"%>
 
-<script src="<c:url value="/js/jquery.slim.min.js"/>"></script>
-<script src="<c:url value="/js/bootstrap.min.js"/>"></script>
-</body>
-</html>

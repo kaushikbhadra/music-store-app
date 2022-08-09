@@ -2,6 +2,7 @@ package com.kaushik.music.musicStore.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,9 +10,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
 
 @Entity
 public class Customer implements Serializable {
@@ -30,27 +35,30 @@ public class Customer implements Serializable {
 	@NotEmpty(message = "customer name not be empty")
 	private String customerName;
 	
-	@NotEmpty(message = "customer Email not be empty")
+	@NotEmpty(message = "customer mail not be empty")
+	@Email(message = "Email is invalid")
 	private String customerEmail;
-
+    
+	@Pattern(regexp = "^\\d{10}$",message = "not more than 10 digit")
 	private String customerPhoneNumb;
 
 	@NotEmpty(message = "customer username not be empty")
+	
 	private String username;
 
 	@NotEmpty(message = "customer password not be empty")
 	private String password;
 
-	@OneToOne
-	@JoinColumn(name = "billingId")
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "billingId" ,referencedColumnName = "billingId")
 	private BillingAddress billingAddress;
 
-	@OneToOne
-	@JoinColumn(name = "shippingId")
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "shippingId", referencedColumnName = "shippingId")
 	private ShippingAddress shippingAddress;
 
-	@OneToOne
-	@JoinColumn(name = "cartId")
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "cartId",referencedColumnName = "cartId")
 	@JsonIgnore
 	private Cart cart;
 	
@@ -129,5 +137,14 @@ public class Customer implements Serializable {
 	public void setCart(Cart cart) {
 		this.cart = cart;
 	}
+
+	@Override
+	public String toString() {
+		return "Customer [customerId=" + customerId + ", customerName=" + customerName + ", customerEmail="
+				+ customerEmail + ", customerPhoneNumb=" + customerPhoneNumb + ", username=" + username + ", password="
+				+ password + ", cart=" + cart + "]";
+	}
+	
+	
 
 }

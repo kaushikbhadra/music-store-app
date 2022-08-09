@@ -27,7 +27,7 @@ public class ShippingAddress implements Serializable {
 
 	@OneToOne
 	private Customer customer;
-	
+
 	public int getShippingId() {
 		return shippingId;
 	}
@@ -97,7 +97,5 @@ public class ShippingAddress implements Serializable {
 		return "ShippingAddress [streetName=" + streetName + ", apartmentNumber=" + apartmentNumber + ", city=" + city
 				+ ", state=" + state + ", country=" + country + ", zipCode=" + zipCode + "]";
 	}
-	
-	
 
 }
