@@ -1,8 +1,23 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ include file="common/header.jspf"%>
+
+<script>
+$(document).ready( function () {
+	var searchCondition = '${searchCondition}';
+
+    $('.table').DataTable({
+        "lengthMenu": [[1,2,3,5,10,-1], [1,2,3,5,10, "All"]],
+        "oSearch": {"sSearch": searchCondition}
+    });
+    
+} );
+
+</script>
+
 <!-- Main Block -->
 <main role="main">
 
+  
 	<div class="container-fluid">
 		<div class="container">
 			<div class="page-header mt-5">

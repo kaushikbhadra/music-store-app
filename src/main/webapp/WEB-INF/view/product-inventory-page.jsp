@@ -1,6 +1,17 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ include file="common/header.jspf"%>
+<script>
+$(document).ready( function () {
+	
 
+    $('.table').DataTable({
+        "lengthMenu": [[1,2,3,5,10,-1], [1,2,3,5,10, "All"]],
+       
+    });
+    
+} );
+
+</script>
 <!-- Main Block -->
 <main role="main">
 
