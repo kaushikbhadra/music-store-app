@@ -48,7 +48,7 @@ public class MusicStoreSecurityConfig{
 			.and()
 			.formLogin()
 			.loginPage("/login")
-           	.defaultSuccessUrl("/product/product-lists")
+           	.defaultSuccessUrl("/product/product-lists/all")
            	.failureUrl("/login?error")
             .usernameParameter("username")
             .passwordParameter("password")

@@ -35,7 +35,7 @@
 						</p>
 						<br>
 						<c:set var="role" scope="page" value="${param.role}" />
-						<c:set var="url" scope="page" value="/product/product-lists" />
+						<c:set var="url" scope="page" value="/product/product-lists/all" />
 						<c:if test="${role='admin'}">
 							<c:set var="url" scope="page" value="/admin/product-inventory" />
 						</c:if>
@@ -44,7 +44,7 @@
 
 
 						<p ng-controller="cartCtrl">
-							<a href="<c:url value="/product/product-lists" />"
+							<a href="<c:url value="/product/product-lists/all" />"
 								class="btn btn-default">Back</a> <a href="#"
 								class="btn btn-warning btn-lg"
 								ng-click="addToCart('${product.productId}')"><img
