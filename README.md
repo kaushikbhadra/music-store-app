@@ -1,6 +1,6 @@
 ## Music Store
 
-Here, You have found music related `Assccesories`,
+Here, You have found music related `Accessories`,
 `Instrument`, `Music-Album`
 ---
 ### Demo of Project
